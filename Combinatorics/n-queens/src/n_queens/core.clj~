@@ -1,7 +1,9 @@
 (ns n-queens.core
   (:gen-class))
 
-
+(defn main 
+ (all_isos1 one))
+ 
 (defn which-queens-to-add [psol m]
   (for [q (range m)
         :when (not-any? true?
