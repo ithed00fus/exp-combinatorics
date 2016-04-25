@@ -60,12 +60,19 @@
   ([airport-id connections] (airport-new airport-id connections :S 0))
   ([airport-id] (airport-new airport-id #{} :S 0)))
 
-(defn build-airport-node [x]
+(defn airport-node [x]
   (airport-new x (airport-graph x)))
 
-(def build-airport-network (into #{}
-      (map build-airport-node (range size))))
+(def airport-network (into #{}
+      (map airport-node (range size))))
+
+(defn degree
+  [x]
+  (count (:connections (airport-node x)))) 
 
 (defn set-field-airport ;;123
   [airport field new-value]
   (assoc-in airport [field] new-value))
+
+(defn set-infection-state-airport
+  [])
